@@ -45,6 +45,7 @@ export class ApiConfigService {
   private getString(key: string): string {
     const value = this.get(key);
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-call
     return value.replaceAll('\\n', '\n');
   }
 

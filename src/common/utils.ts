@@ -28,6 +28,7 @@ export function validateHash(
 
 export function getVariableName<TResult>(getVar: () => TResult): string {
   const m = /\(\)=>(.*)/.exec(
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-call
     getVar.toString().replaceAll(/(\r\n|\n|\r|\s)/gm, ''),
   );
 
@@ -41,5 +42,5 @@ export function getVariableName<TResult>(getVar: () => TResult): string {
 
   const memberParts = fullMemberName.split('.');
 
-  return memberParts.at(-1);
+  return memberParts.at(-1) as string;
 }
